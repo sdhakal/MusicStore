@@ -260,7 +260,7 @@ paket-files/
 __pycache__/
 *.pyc
 
-#Ignore Web.config, bin and migrations
-Web.config
+#Ignore bin and migrations
+#Web.config
 Migrations/
 bin/
