@@ -50,6 +50,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,14 +197,49 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901200800287_NameInArtistAttributes.cs" />
+    <Compile Include="Migrations\201901200800287_NameInArtistAttributes.Designer.cs">
+      <DependentUpon>201901200800287_NameInArtistAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201030189_OneToMany.cs" />
+    <Compile Include="Migrations\201901201030189_OneToMany.Designer.cs">
+      <DependentUpon>201901201030189_OneToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201045340_OneToOne.cs" />
+    <Compile Include="Migrations\201901201045340_OneToOne.Designer.cs">
+      <DependentUpon>201901201045340_OneToOne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201053454_ManyToMany.cs" />
+    <Compile Include="Migrations\201901201053454_ManyToMany.Designer.cs">
+      <DependentUpon>201901201053454_ManyToMany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201122217_SoloArtist.cs" />
+    <Compile Include="Migrations\201901201122217_SoloArtist.Designer.cs">
+      <DependentUpon>201901201122217_SoloArtist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901201125191_SoloArtist1.cs" />
+    <Compile Include="Migrations\201901201125191_SoloArtist1.Designer.cs">
+      <DependentUpon>201901201125191_SoloArtist1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\ArtistDetail.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MusicStoreDataContext.cs" />
+    <Compile Include="Models\MusicStoreDataContextInitializer.cs" />
+    <Compile Include="Models\Repositories\ArtistRepository.cs" />
+    <Compile Include="Models\Repositories\Repository.cs" />
+    <Compile Include="Models\Reviewer.cs" />
+    <Compile Include="Models\SoloArtist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -266,6 +302,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Artists\Index.cshtml" />
+    <Content Include="Views\Artists\Create.cshtml" />
+    <Content Include="Views\Artists\Details.cshtml" />
+    <Content Include="Views\Artists\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +322,26 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901200800287_NameInArtistAttributes.resx">
+      <DependentUpon>201901200800287_NameInArtistAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201030189_OneToMany.resx">
+      <DependentUpon>201901201030189_OneToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201045340_OneToOne.resx">
+      <DependentUpon>201901201045340_OneToOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201053454_ManyToMany.resx">
+      <DependentUpon>201901201053454_ManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201122217_SoloArtist.resx">
+      <DependentUpon>201901201122217_SoloArtist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901201125191_SoloArtist1.resx">
+      <DependentUpon>201901201125191_SoloArtist1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
